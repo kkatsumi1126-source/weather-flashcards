@@ -3,63 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>気象衛星雲パターンフラッシュカード</title>
-  <link rel="stylesheet" href="style.css">
+  <title>気象フラッシュカード</title>
+  <style>
+    :root {
+      --bg: #eef1f4;
+      --panel: #ffffff;
+      --ink: #1d2733;
+      --muted: #667381;
+      --line: #d8dee6;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --blue: #2563eb;
+      --shadow: 0 14px 32px rgba(31, 41, 55, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    main {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 36px;
+    }
+
+    header {
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 5vw, 2.45rem);
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f7fafc;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 650;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .title {
+      font-weight: 700;
+    }
+
+    .count {
+      white-space: nowrap;
+      color: var(--muted);
+    }
+
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 118px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--accent);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .open-link:hover {
+      background: var(--accent-dark);
+    }
+
+    .open-link.secondary {
+      background: var(--blue);
+    }
+
+    .note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding: 20px 12px 28px;
+      }
+
+      .table-wrap {
+        border-radius: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="app">
-    <header class="app-header">
-      <h1>気象衛星雲パターンフラッシュカード</h1>
-      <p id="progress" class="progress">1 / 24</p>
+  <main>
+    <header>
+      <h1>気象フラッシュカード</h1>
+      <p>使いたいカードを選んで開けます。</p>
     </header>
 
-    <section class="filter-panel" aria-label="カードの種類">
-      <button class="filter-button active" type="button" data-filter="すべて">すべて</button>
-      <button class="filter-button" type="button" data-filter="雲パターン">雲パターン</button>
-      <button class="filter-button" type="button" data-filter="意味">意味</button>
-      <button class="filter-button" type="button" data-filter="見たら考えること">見たら考えること</button>
-      <button class="filter-button" type="button" data-filter="試験ポイント">試験ポイント</button>
-      <button class="filter-button" type="button" data-filter="略語">略語</button>
+    <section class="table-wrap" aria-label="フラッシュカード一覧">
+      <table>
+        <thead>
+          <tr>
+            <th>教材</th>
+            <th>内容</th>
+            <th>枚数</th>
+            <th>起動</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="title">国際式天気記号フラッシュカード</td>
+            <td>現在天気 ww、降水なし、視程障害、霧、雨、雪、しゅう雨、雷雨</td>
+            <td class="count">54枚</td>
+            <td><a class="open-link" href="国際式天気記号フラッシュカード/index.html">開く</a></td>
+          </tr>
+          <tr>
+            <td class="title">台風・熱帯低気圧フラッシュカード</td>
+            <td>台風の定義、大きさ、強さ、英文表記、TD/TS/STS/TY、中心位置の確度</td>
+            <td class="count">62枚</td>
+            <td><a class="open-link" href="台風・熱帯低気圧フラッシュカード/index.html">開く</a></td>
+          </tr>
+          <tr>
+            <td class="title">海上警報フラッシュカード</td>
+            <td>海上風警報、海上強風警報、海上暴風警報、海上台風警報、濃霧</td>
+            <td class="count">22枚</td>
+            <td><a class="open-link secondary" href="海上警報フラッシュカード/index.html">開く</a></td>
+          </tr>
+          <tr>
+            <td class="title">気象衛星雲パターンフラッシュカード</td>
+            <td>衛星画像と雲パターンの学習</td>
+            <td class="count">既存</td>
+            <td><a class="open-link secondary" href="気象衛星雲パターンフラッシュカード/index.html">開く</a></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
-    <section class="card-zone">
-      <button id="flashcard" class="flashcard" type="button" aria-label="カードをめくる">
-        <span class="card-inner">
-          <span class="card-face card-front">
-            <span id="categoryLabel" class="category-label">雲パターン</span>
-            <span id="frontText" class="front-text">クラウドクラスターとは？</span>
-          </span>
-          <span id="backArea" class="card-face card-back">
-            <span id="backCategoryLabel" class="category-label answer-label">答え</span>
-            <span id="backText" class="back-text">積乱雲 Cb が集まってできた大きな雲のかたまり</span>
-            <span id="noteText" class="note-text">大雨・雷・激しい対流に注意します。</span>
-          </span>
-        </span>
-      </button>
-    </section>
-
-    <section class="memory-controls" aria-label="学習結果">
-      <button id="rememberedButton" class="memory-button remembered" type="button">覚えた</button>
-      <button id="againButton" class="memory-button again" type="button">もう一度</button>
-    </section>
-
-    <nav class="controls" aria-label="カード操作">
-      <button id="prevButton" type="button">前へ</button>
-      <button id="flipButton" type="button">答えを見る</button>
-      <button id="nextButton" type="button">次へ</button>
-      <button id="shuffleButton" type="button">シャッフル</button>
-      <button id="restartButton" type="button">最初から</button>
-    </nav>
-
-    <footer class="stats-panel">
-      <div class="stats">
-        <span>覚えた: <strong id="rememberedCount">0</strong>枚</span>
-        <span>もう一度: <strong id="againCount">0</strong>枚</span>
-      </div>
-      <button id="resetButton" class="reset-button" type="button">学習記録をリセット</button>
-    </footer>
+    <p class="note">Macでは各 `.command` からも開けます。GitHub Pagesではこの画面の「開く」ボタンから使えます。</p>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
