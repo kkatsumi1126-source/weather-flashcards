@@ -1,5 +1,7 @@
 #!/bin/bash
-cd "$(dirname "$0")"
-open "index.html"
-sleep 1
+
+DIR="$(cd "$(dirname "$0")" && pwd)"
+TOP_PAGE="$DIR/index.html"
+
+open -a "Google Chrome" "$TOP_PAGE"
 exit 0

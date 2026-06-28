@@ -5,75 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>国際式天気記号フラッシュカード</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="images.css">
 </head>
 <body>
   <main class="app">
-    <header class="app-header">
-      <h1>国際式天気記号フラッシュカード</h1>
-      <p id="progress" class="progress">1 / 54</p>
-    </header>
-
-    <section class="filter-panel" aria-label="カードの種類">
-      <button class="filter-button active" type="button" data-filter="すべて">すべて</button>
-      <button class="filter-button" type="button" data-filter="降水なし">降水なし</button>
-      <button class="filter-button" type="button" data-filter="視程障害">視程障害</button>
-      <button class="filter-button" type="button" data-filter="雷・突風">雷・突風</button>
-      <button class="filter-button" type="button" data-filter="前1時間内">前1時間内</button>
-      <button class="filter-button" type="button" data-filter="霧">霧</button>
-      <button class="filter-button" type="button" data-filter="霧雨">霧雨</button>
-      <button class="filter-button" type="button" data-filter="雨">雨</button>
-      <button class="filter-button" type="button" data-filter="雨雪">雨雪</button>
-      <button class="filter-button" type="button" data-filter="雪">雪</button>
-      <button class="filter-button" type="button" data-filter="しゅう雨">しゅう雨</button>
-      <button class="filter-button" type="button" data-filter="しゅう雨雪">しゅう雨雪</button>
-      <button class="filter-button" type="button" data-filter="しゅう雪">しゅう雪</button>
-      <button class="filter-button" type="button" data-filter="ひょう・あられ">ひょう・あられ</button>
-      <button class="filter-button" type="button" data-filter="雷雨">雷雨</button>
-    </section>
-
+    <header class="app-header"><h1>国際式天気記号フラッシュカード</h1><p id="progress" class="progress"></p></header>
+    <section id="filters" class="filter-panel" aria-label="カードの種類"></section>
     <section class="card-zone">
-      <button id="flashcard" class="flashcard" type="button" aria-label="カードをめくる">
-        <span class="card-inner">
-          <span class="card-face card-front">
-            <span id="categoryLabel" class="category-label">降水なし</span>
-            <span class="symbol-stage">
-              <img id="symbolImage" class="symbol-image" src="" alt="">
-              <span id="symbolFallback" class="symbol-fallback">ww 00</span>
-            </span>
-            <span id="frontText" class="front-text">ww 00 は何の現在天気？</span>
-          </span>
-          <span class="card-face card-back">
-            <span id="backCategoryLabel" class="category-label answer-label">答え</span>
-            <span id="backText" class="back-text">雲の発達なし</span>
-            <span id="noteText" class="note-text">試験ポイント: 00〜03は降水なし。</span>
-          </span>
-        </span>
-      </button>
+      <button id="flashcard" class="flashcard" type="button" aria-label="カードをめくる"><span class="card-inner">
+        <span class="card-face card-front"><span id="categoryLabel" class="category-label"></span><span id="frontText" class="front-text"></span></span>
+        <span class="card-face card-back"><span id="backCategoryLabel" class="category-label answer-label">答え</span><span id="backText" class="back-text"></span><span id="noteText" class="note-text"></span></span>
+      </span></button>
     </section>
-
-    <section class="memory-controls" aria-label="学習結果">
-      <button id="rememberedButton" class="memory-button remembered" type="button">覚えた</button>
-      <button id="againButton" class="memory-button again" type="button">もう一度</button>
-    </section>
-
-    <nav class="controls" aria-label="カード操作">
-      <button id="prevButton" type="button">前へ</button>
-      <button id="flipButton" type="button">答えを見る</button>
-      <button id="nextButton" type="button">次へ</button>
-      <button id="shuffleButton" type="button">シャッフル</button>
-      <button id="restartButton" type="button">最初から</button>
-    </nav>
-
-    <footer class="stats-panel">
-      <div class="stats">
-        <span>覚えた: <strong id="rememberedCount">0</strong>枚</span>
-        <span>もう一度: <strong id="againCount">0</strong>枚</span>
-      </div>
-      <button id="resetButton" class="reset-button" type="button">学習記録をリセット</button>
-    </footer>
+    <section class="memory-controls"><button id="rememberedButton" class="memory-button remembered">覚えた</button><button id="againButton" class="memory-button again">もう一度</button></section>
+    <nav class="controls"><button id="prevButton">前へ</button><button id="flipButton">答えを見る</button><button id="nextButton">次へ</button><button id="shuffleButton">シャッフル</button><button id="restartButton">最初から</button></nav>
+    <footer class="stats-panel"><div class="stats"><span>覚えた: <strong id="rememberedCount">0</strong>枚</span><span>もう一度: <strong id="againCount">0</strong>枚</span></div><button id="resetButton" class="reset-button">学習記録をリセット</button></footer>
   </main>
-
-  <script src="present_weather_major_cards.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
