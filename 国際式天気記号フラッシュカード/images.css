@@ -1,0 +1,23 @@
+.front-text small {
+  display: block;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.symbol-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.symbol-group img {
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 110px;
+  object-fit: contain;
+  border-radius: 6px;
+}
